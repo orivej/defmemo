@@ -26,6 +26,8 @@
 
 (assert (equal (documentation 'fib 'function) "test"))
 
+(assert (get-memo 'fib))
+
 (assert (zerop (hash-table-count (clear-memo 'fib))))
 
 (unintern 'fib)
