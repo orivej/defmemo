@@ -10,10 +10,10 @@ and documentation.  Memoizing hash table is stored under property
 
 ## Usage
 
-All four functions are exported: defmemo (like defun), get-memo and
-clear-memo (defmemo`d symbol), and memoize (funcallable object).
-Clear-memo is not needed on implementations supporting weak hash
-tables (via trivial-garbage).  Memoize is not needed for primary
+All four functions are exported: `defmemo` (like defun), `get-memo`
+and `clear-memo` (defmemo'ed symbol), and `memoize` (funcallable
+object).  Clear-memo is not needed on implementations supporting weak
+hash tables (via trivial-garbage).  Memoize is not needed for primary
 use-cases.
 
 ```lisp
