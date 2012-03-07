@@ -33,10 +33,14 @@
                (funcall ,fun . ,arglist))))))))
 
 (defun get-memo (symbol)
-  "Get memoizing hash table"
+  "Get memoizing hash table."
   (get symbol :memo))
 
+(defun (setf get-memo) (value symbol)
+  "Replace memoizing hash of symbol with value."
+  (setf (get symbol :memo) value))
+
 (defun clear-memo (symbol)
-  "Reset memoizing hash table"
+  "Reset memoizing hash table."
   (let ((memo (get-memo symbol)))
     (when memo (clrhash memo))))

@@ -1,4 +1,4 @@
-defmemo
+Defmemo
 =======
 
 Defmemo is a generic defun form, performimng memoization other calls
