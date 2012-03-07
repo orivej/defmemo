@@ -21,7 +21,7 @@
                           (mapcar #'first optional)
                           (list rest)
                           (mapcar #'first keywords))))
-          (docstring (and (typep (first body) 'string)
+          (docstring (and (stringp (first body))
                           (first body))))
       (with-gensyms (fun memo)
         `(flet ((,fun ,args . ,body))
