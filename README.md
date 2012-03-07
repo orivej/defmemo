@@ -1,7 +1,7 @@
 Defmemo
 =======
 
-Defmemo is a generic defun form, performimng memoization other calls
+Defmemo is a generic defun form, performimng memoization over calls
 to such defined function.  It supports arbitrary lambda lists and
 multiple return values.  (optimize speed)-friendly, otherwise it might
 have been implemented as in Peter Norvig's PAIP.  Preserves arguments
