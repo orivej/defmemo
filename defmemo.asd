@@ -1,5 +1,5 @@
 (asdf:defsystem defmemo
-  :version "1.0"
+  :version "1.5"
   :description "Memoizing defun"
   :author "Orivej Desh <orivej@gmx.fr>"
   :licence "Unlicense <http://unlicense.org/UNLICENSE>"

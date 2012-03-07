@@ -42,12 +42,14 @@
 
 (test1 :d1 2 :d2 3)
 (test2 :d2 3 :d1 2)
-
 (assert (= 1 (hash-table-count (get-memo 'test2))))
 
 (test1 :d1 4 :d2 5)
-
 (assert (= 2 (hash-table-count (get-memo 'test2))))
+
+(assert (equal (test2) (list 2 1 nil)))
+(setf (get-memo 'test2) 13)
+(assert (eq (ignore-errors (test2)) nil))
 
 (unintern 'test1)
 (unintern 'test2)
