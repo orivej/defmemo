@@ -2,7 +2,7 @@
   :version "0"
   :description "Memoizing defun"
   :author "Orivej Desh <orivej@gmx.fr>"
-  :licence "Unlicense"
+  :licence "Unlicense <http://unlicense.org/UNLICENSE>"
   :depends-on (alexandria trivial-garbage)
   :in-order-to ((test-op (load-op defmemo-test)))
   :serial t
