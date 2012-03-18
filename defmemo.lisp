@@ -23,29 +23,18 @@
            (list rest)
            (mapcar #'first keywords)))))
 
-(defun doc-decls-body (body)
-  "Extract documentation, declarations and pure body from body."
-  (let (doc decls)
-    (when (stringp (first body))
-      (setf doc (first body)
-            body (rest body)))
-    (when (eq (caar body) 'declare)
-      (setf decls (first body)
-            body (rest body)))
-    (values doc decls body)))
-
 (defmacro defmemo (name args &body body)
   "Construct defun with body wrapped into memoizing hash table.  Put the latter under :memo property of name."
   (let ((arglist (flat-arglist args)))
-    (multiple-value-bind (doc decls body) (doc-decls-body body)
+    (multiple-value-bind (body decls doc) (parse-body body :documentation t)
       (with-gensyms (entry present)
         `(progn
            (setf (get-memo ',name)
                  (make-weak-hash-table
                   :test #'equal :weakness :key :weakness-matters nil))
            (defun ,name ,args
-             ,doc
-             ,decls
+             ,@(and doc (list doc))
+             ,@decls
              (multiple-value-bind (,entry ,present)
                  (gethash (list . ,arglist) (get-memo ',name))
                (values-list
